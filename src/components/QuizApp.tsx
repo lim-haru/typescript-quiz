@@ -1,6 +1,7 @@
 import React, { useState } from "react"
 import { Question, questions } from "../data"
 import QuizStart from "./QuizStart"
+import QuizEnd from "./QuizEnd"
 
 export default function QuizApp() {
   const [quizStarted, setQuizStarted] = useState(false)
@@ -15,6 +16,12 @@ export default function QuizApp() {
 
     setCurrentQuestion(currentQuestion + 1)
     setSelectedOptionIndex(null)
+  }
+
+  const handleRestartQuiz = () => {
+    setQuizStarted(false)
+    setCurrentQuestion(0)
+    setScore(0)
   }
 
   const renderQuestion = (question: Question, index: number) => {
@@ -47,7 +54,7 @@ export default function QuizApp() {
     <div>
       <h1>Quiz App</h1>
       {!quizStarted ? (
-        <QuizStart onStartQuiz={() => setQuizStarted(true)} />
+        <QuizStart onStartQuiz={() => setQuizStarted(true)} totalQuestions={questions.length} />
       ) : currentQuestion < questions.length ? (
         <>
           {renderQuestion(questions[currentQuestion], currentQuestion)}
@@ -56,10 +63,7 @@ export default function QuizApp() {
           </button>
         </>
       ) : (
-        <div>
-          <h2>Quiz Completed!</h2>
-          <h3>Your Score:{score}</h3>
-        </div>
+        <QuizEnd score={score} totalQuestions={questions.length} onRestartQuiz={handleRestartQuiz} />
       )}
     </div>
   )
