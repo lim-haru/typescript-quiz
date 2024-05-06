@@ -2,6 +2,7 @@ import React, { useState } from "react"
 import { Question, questions } from "../data"
 import QuizStart from "./QuizStart"
 import QuizEnd from "./QuizEnd"
+import style from "../style/QuizApp.module.css"
 
 export default function QuizApp() {
   const [quizStarted, setQuizStarted] = useState(false)
@@ -28,8 +29,8 @@ export default function QuizApp() {
     const { questionText, options } = question
 
     return (
-      <div key={index}>
-        <h2>{questionText}</h2>
+      <div key={index} className={style.question}>
+        <h2 className="mb-5 ">{questionText}</h2>
         <ul>
           {options.map((option, optionIndex) => (
             <li key={optionIndex}>
@@ -41,7 +42,7 @@ export default function QuizApp() {
                   checked={selectedOptionIndex === optionIndex}
                   onChange={() => setSelectedOptionIndex(optionIndex)}
                 />
-                {option}
+                <span>{option}</span>
               </label>
             </li>
           ))}
@@ -51,16 +52,28 @@ export default function QuizApp() {
   }
 
   return (
-    <div>
-      <h1>Quiz App</h1>
+    <div className={`${style.QuizApp} d-flex flex-column justify-content-center align-items-center p-sm-5`}>
       {!quizStarted ? (
         <QuizStart onStartQuiz={() => setQuizStarted(true)} totalQuestions={questions.length} />
       ) : currentQuestion < questions.length ? (
         <>
           {renderQuestion(questions[currentQuestion], currentQuestion)}
-          <button onClick={handleNextQuestion} disabled={selectedOptionIndex === null}>
-            {currentQuestion + 1 === questions.length ? "Fine" : "Prossimo"}
-          </button>
+          <div className="d-flex w-100 justify-content-end mt-4 me-5">
+            <button className={style.button} onClick={handleNextQuestion} disabled={selectedOptionIndex === null}>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="1.5"
+                stroke="currentColor"
+                className="w-6 h-6"
+              >
+                <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12h15m0 0l-6.75-6.75M19.5 12l-6.75 6.75"></path>
+              </svg>
+
+              <div className={style.btnText}>{currentQuestion + 1 === questions.length ? "Fine" : "Prossimo"}</div>
+            </button>
+          </div>
         </>
       ) : (
         <QuizEnd score={score} totalQuestions={questions.length} onRestartQuiz={handleRestartQuiz} />

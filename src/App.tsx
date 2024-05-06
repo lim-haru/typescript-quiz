@@ -4,7 +4,7 @@ import QuizApp from "./components/QuizApp"
 
 function App() {
   return (
-    <div className="App">
+    <div className="App container-fluid">
       <QuizApp />
     </div>
   )
