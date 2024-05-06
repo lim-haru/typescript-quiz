@@ -57,6 +57,16 @@ export default function QuizApp() {
         <QuizStart onStartQuiz={() => setQuizStarted(true)} totalQuestions={questions.length} />
       ) : currentQuestion < questions.length ? (
         <>
+          <div className={`${style.progressBar} progress`}>
+            <div
+              className="progress-bar"
+              role="progressbar"
+              style={{ width: `${((currentQuestion + 1) / questions.length) * 100}%` }}
+              aria-valuenow={25}
+              aria-valuemin={0}
+              aria-valuemax={100}
+            ></div>
+          </div>
           {renderQuestion(questions[currentQuestion], currentQuestion)}
           <div className="d-flex w-100 justify-content-end mt-4 me-5">
             <button className={style.button} onClick={handleNextQuestion} disabled={selectedOptionIndex === null}>
