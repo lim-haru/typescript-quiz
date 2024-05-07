@@ -8,13 +8,13 @@ Dopo aver completato il quiz, viene fornito un feedback istantaneo sul punteggio
 ### [Presentazione]()
 
 <div align="center">
-  <img width="75%" style="border-radius: 35px; margin-bottom: 10px;" src="./github/image/start-quiz.png">
+  <img width="75%" src="./github/image/start-quiz.png">
 </div>
 <div align="center">
-  <img width="75%" style="border-radius: 35px; margin-bottom: 10px;" src="./github/image/questions-quiz.png">
+  <img width="75%" src="./github/image/questions-quiz.png">
 </div>
 <div align="center">
-  <img width="75%" style="border-radius: 35px; margin-bottom: 10px;" src="./github/image/end-quiz.png">
+  <img width="75%" src="./github/image/end-quiz.png">
 </div>
 
 ## Tecnologie Utilizzate
