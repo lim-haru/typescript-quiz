@@ -5,7 +5,7 @@
 Benvenuti nella webapp del Quiz sul Turismo Sostenibile! Questa progetto è una semplice applicazione web sviluppata utilizzando React e TypeScript, progettata per testare le conoscenze sull'argomento del turismo sostenibile.
 Dopo aver completato il quiz, viene fornito un feedback istantaneo sul punteggio ottenuto, ed un livello di abilità raggiunto in basse alle risposte corrette.
 
-### [Presentazione]()
+### [Presentazione](https://www.canva.com/design/DAGEjv1Dr_g/KlbU4_wrVX_LbY-gl4lp2A/view?utm_content=DAGEjv1Dr_g&utm_campaign=designshare&utm_medium=link&utm_source=editor)
 
 <div align="center">
   <img width="75%" src="./github/image/start-quiz.png">
